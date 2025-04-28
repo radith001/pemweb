@@ -2773,8 +2773,8 @@ textarea.form-control-lg {
 
 .btn-primary {
   color: #fff;
-  background-color: #3344AA;
-  border-color: #3344AA;
+  background-color: #0d6efd;
+  border-color: #0d6efd;
 }
 .btn-primary:hover {
   color: #fff;
@@ -2800,16 +2800,6 @@ textarea.form-control-lg {
   background-color: #0d6efd;
   border-color: #0d6efd;
 }
-
-.btn-roselia {
-  background-color: #9b59b6; /* warna ungu elegan */
-  color: white;
-  border: none;
-}
-.btn-roselia:hover {
-  background-color: #8e44ad;
-}
-
 
 .btn-secondary {
   color: #fff;
