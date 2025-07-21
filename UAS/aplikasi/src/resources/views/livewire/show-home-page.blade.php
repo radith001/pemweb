@@ -81,9 +81,9 @@
     <div class="row">
       <div class="col-lg-4 col-md-6">
         <div class="section-title pt-4">
-          <p class="text-primary text-uppercase fw-bold mb-3">Our Services</p>
-          <h1>Our online services</h1>
-          <p>Explore a range of digital services designed to simplify your daily needs. Fast, secure, and accessible anytime, anywhere.</p>
+          <p class="text-primary text-uppercase fw-bold mb-3">Our Products</p>
+          <h1>Our Product list</h1>
+          <p>Discover trusted used motorcycles with ease. Quick, secure transactions—anytime, anywhere.</p>
         </div>
       </div>
 
