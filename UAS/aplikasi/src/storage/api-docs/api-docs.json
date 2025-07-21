@@ -1,0 +1,270 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "My API",
+        "description": "This is the API documentation for My API.",
+        "termsOfService": "https://dev.test/terms",
+        "contact": {
+            "name": "API Support",
+            "email": "support@example.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://dev.test",
+            "description": "Local API Server"
+        }
+    ],
+    "paths": {
+        "/api/kendaraans": {
+            "get": {
+                "tags": [
+                    "Kendaraans"
+                ],
+                "summary": "Get all kendaraan",
+                "description": "Returns a list of all kendaraan.",
+                "operationId": "getKendaraans",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Kendaraan"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized - Invalid API Key"
+                    }
+                },
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Kendaraans"
+                ],
+                "summary": "Create a new kendaraan",
+                "operationId": "createKendaraan",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "brand",
+                                    "model",
+                                    "year",
+                                    "color",
+                                    "price"
+                                ],
+                                "properties": {
+                                    "brand": {
+                                        "type": "string",
+                                        "example": "Honda"
+                                    },
+                                    "model": {
+                                        "type": "string",
+                                        "example": "Beat"
+                                    },
+                                    "year": {
+                                        "type": "string",
+                                        "example": "2022"
+                                    },
+                                    "color": {
+                                        "type": "string",
+                                        "example": "Hitam"
+                                    },
+                                    "price": {
+                                        "type": "integer",
+                                        "example": 18000000
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created successfully"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/api/kendaraans/{id}": {
+            "put": {
+                "tags": [
+                    "Kendaraans"
+                ],
+                "summary": "Update kendaraan by ID",
+                "operationId": "updateKendaraan",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "brand": {
+                                        "type": "string",
+                                        "example": "Honda"
+                                    },
+                                    "model": {
+                                        "type": "string",
+                                        "example": "Beat"
+                                    },
+                                    "year": {
+                                        "type": "string",
+                                        "example": "2022"
+                                    },
+                                    "color": {
+                                        "type": "string",
+                                        "example": "Hitam"
+                                    },
+                                    "price": {
+                                        "type": "integer",
+                                        "example": 18000000
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Updated successfully"
+                    },
+                    "404": {
+                        "description": "Data not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Kendaraans"
+                ],
+                "summary": "Delete kendaraan by ID",
+                "operationId": "deleteKendaraan",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Deleted successfully"
+                    },
+                    "404": {
+                        "description": "Data not found"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Kendaraan": {
+                "title": "Kendaraan",
+                "required": [
+                    "id",
+                    "brand",
+                    "model",
+                    "year",
+                    "color",
+                    "price"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "brand": {
+                        "type": "string",
+                        "example": "Yamaha"
+                    },
+                    "model": {
+                        "type": "string",
+                        "example": "NMAX"
+                    },
+                    "year": {
+                        "type": "string",
+                        "example": "2023"
+                    },
+                    "color": {
+                        "type": "string",
+                        "example": "Hitam"
+                    },
+                    "price": {
+                        "type": "integer",
+                        "example": 25000000
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-01-01T12:00:00Z"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-01-01T12:00:00Z"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "securitySchemes": {
+            "ApiKeyAuth": {
+                "type": "apiKey",
+                "name": "X-API-KEY",
+                "in": "header"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Kendaraans",
+            "description": "Kendaraans"
+        }
+    ]
+}
